@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:14.3
+    container_name: otus-postgres
+    environment:
+      POSTGRES_DB: "openheart"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ".:/var/lib/postgresql/data"
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pg_admin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres@postgres.ru"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
