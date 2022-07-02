@@ -34,12 +34,22 @@ create table if not exists catalog.address
     constraint address_unique unique (region, city, street, building, apartment)
 ) tablespace slow_read_space;
 
+create table if not exists catalog.department
+(
+    id           serial primary key,
+    address      varchar(256) not null,
+    phone_number varchar(20)  not null,
+    constraint department_address_unique unique (address)
+) tablespace slow_read_space;
+
 create table if not exists catalog.car
 (
     id                  serial primary key,
     registration_number varchar(6),
     model               varchar(128),
     capacity            int not null,
+    department_id int,
+    foreign key (department_id) references catalog.department,
     constraint cars_registration_number_unique unique (registration_number)
 ) tablespace slow_read_space;
 
@@ -52,13 +62,6 @@ create table if not exists catalog.cause
     constraint cause_code_unique unique (code)
 ) tablespace slow_read_space;
 
-create table if not exists catalog.department
-(
-    id           serial primary key,
-    address      varchar(256) not null,
-    phone_number varchar(20)  not null,
-    constraint department_address_unique unique (address)
-) tablespace slow_read_space;
 
 create table if not exists catalog.material_type
 (
