@@ -1,0 +1,1 @@
+docker compose -f=./docker/postgresql/compose/postgresql.yaml up
