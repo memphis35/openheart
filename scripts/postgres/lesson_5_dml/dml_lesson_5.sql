@@ -44,7 +44,7 @@ update catalog.material as m
 
 --Напишите запрос для удаления данных с оператором DELETE используя join с другой таблицей с помощью using.
 alter table work.patient_card rename column id to patient_card_id;
-delete from work.request r join work.patient_card p using (patient_card_id)
+delete from work.request r inner join work.patient_card p using (patient_card_id)
 where r.status_id = 4 or p.patient_age > 80;
 
 -- Приведите пример использования утилиты COPY (по желанию)

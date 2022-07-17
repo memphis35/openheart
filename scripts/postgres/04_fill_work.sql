@@ -50,4 +50,4 @@ insert into work.request values
                              (5, 5, '+79210573812', now(), 25, 1, 1, default),
                              (6, 6, '+79214886923', now(), 25, 1, 1, default),
                              (7, 7, '+79219782640', now(), 25, 1, 1, default),
-                             (8, 8, '+79215642995', now(), 25, 1, 1, default),
+                             (8, 8, '+79215642995', now(), 25, 1, 1, default);
